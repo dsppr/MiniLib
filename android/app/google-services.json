@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "553046014575",
+    "project_id": "minilib-69815",
+    "storage_bucket": "minilib-69815.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:553046014575:android:028c72a1e95f01ea66ab9a",
+        "android_client_info": {
+          "package_name": "com.example.minilib"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCcfWm1cuNB7zp0U1gAqJfXr8JQ0okmMso"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
