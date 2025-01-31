@@ -15,7 +15,7 @@ class LoginPage extends StatelessWidget {
           Container(
             decoration: const BoxDecoration(
               image: DecorationImage(
-                image: AssetImage("lib/assets/images/login_bg.jpg"),
+                image: AssetImage("assets/images/login_bg.jpg"),
                 fit: BoxFit.cover,
               ),
             ),
@@ -26,7 +26,7 @@ class LoginPage extends StatelessWidget {
               children: [
                 // Logo
                 Image.asset(
-                  "lib/assets/images/logo.png",
+                  "assets/images/logo.png",
                   width: 150,
                 ),
                 const SizedBox(height: 40),
@@ -62,7 +62,7 @@ class LoginPage extends StatelessWidget {
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       Image.asset(
-                        "lib/assets/images/google_logo.png",
+                        "assets/images/google_logo.png",
                         height: 24,
                       ),
                       const SizedBox(width: 10),

@@ -13,6 +13,9 @@ class _MapPageState extends State<MapPage> {
   late MapboxMap mapboxMap;
   PointAnnotationManager? _annotationManager;
 
+  static const double lat = -6.22809;
+  static const double lng = 106.60808;
+
   @override
   void initState() {
     super.initState();
@@ -38,10 +41,13 @@ class _MapPageState extends State<MapPage> {
       ),
       body: MapWidget(
         key: const ValueKey("mapWidget"),
-        styleUri: MapboxStyles.MAPBOX_STREETS,
+        styleUri:
+            "mapbox://styles/mapbox/streets-v12", // Menggunakan Street Map
         cameraOptions: CameraOptions(
-          center: Point(coordinates: Position(-6.25609, 106.61862)),
-          zoom: 15.0,
+          center: Point(coordinates: Position(lng, lat)),
+          zoom: 18.0, // Zoom lebih dekat
+          pitch: 45.0, // Memberikan efek miring untuk perspektif lebih baik
+          bearing: 0.0,
         ),
         onMapCreated: _onMapCreated,
       ),
@@ -49,6 +55,13 @@ class _MapPageState extends State<MapPage> {
   }
 
   void _onMapCreated(MapboxMap map) {
+    mapboxMap = map;
+    mapboxMap.style
+        .setStyleImportConfigProperty("basemap", "showRoadLabels", false);
+    mapboxMap.style
+        .setStyleImportConfigProperty("basemap", "showTransitLabels", false);
+    mapboxMap.style
+        .setStyleImportConfigProperty("basemap", "show3dObjects", true);
     mapboxMap = map;
     _addMarker();
   }
@@ -58,10 +71,10 @@ class _MapPageState extends State<MapPage> {
         await mapboxMap.annotations.createPointAnnotationManager();
 
     await _annotationManager?.create(PointAnnotationOptions(
-      geometry: Point(coordinates: Position(-6.25609, 106.61862)),
+      geometry: Point(coordinates: Position(lng, lat)),
       textField: "The Johannes Oentoro Library",
-      textSize: 12.0,
-      iconSize: 2.0, // Pastikan ukurannya visible
+      textSize: 14.0,
+      iconSize: 2.0, // Ukuran marker agar lebih jelas
     ));
 
     debugPrint("📍 Marker berhasil ditambahkan.");

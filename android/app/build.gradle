@@ -46,4 +46,7 @@ dependencies {
     implementation 'com.google.firebase:firebase-auth-ktx' // Firebase Authentication
     implementation 'com.google.firebase:firebase-firestore-ktx' // Firebase Firestore
     implementation 'com.google.firebase:firebase-storage-ktx' // Firebase Storage
+    implementation 'com.google.android.gms:play-services-base:18.1.0'
+    implementation 'com.google.android.gms:play-services-auth:20.7.0'
+
 }

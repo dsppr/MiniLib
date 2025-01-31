@@ -17,6 +17,7 @@ class Buku {
     required this.gambarSampul,
   });
 
+  // Convert Firestore document ke object Buku
   factory Buku.fromMap(Map<String, dynamic> map, String documentId) {
     return Buku(
       id: documentId,
@@ -29,6 +30,7 @@ class Buku {
     );
   }
 
+  // Convert object ke Map untuk Firestore
   Map<String, dynamic> toMap() {
     return {
       'judul': judul,
