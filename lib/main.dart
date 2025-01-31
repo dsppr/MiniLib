@@ -9,11 +9,18 @@ import 'views/home_page.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-  await dotenv.load(); // Memuat file .env
+  await dotenv.load(fileName: ".env");
 
-  // Mengecek apakah pengguna sudah login
+  // Debugging: Pastikan API Key terbaca
+  String? mapboxToken = dotenv.env['MAPBOX_ACCESS_TOKEN'];
+  if (mapboxToken == null || mapboxToken.isEmpty) {
+    debugPrint(
+        "⚠️ Mapbox API Key tidak ditemukan! Pastikan file .env sudah benar.");
+  } else {
+    debugPrint("✅ Mapbox API Key berhasil terbaca.");
+  }
+
   User? user = await AuthService().signInSilently();
-
   runApp(MyApp(initialUser: user));
 }
 
