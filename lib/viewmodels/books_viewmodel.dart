@@ -8,6 +8,7 @@ class BukuViewModel extends ChangeNotifier {
   bool _isLoading = false;
 
   List<Buku> get bukuList => _bukuList;
+  Stream<List<Buku>> get bukuListStream => _firebaseService.getBooks();
   bool get isLoading => _isLoading;
 
   BukuViewModel() {
